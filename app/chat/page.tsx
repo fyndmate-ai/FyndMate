@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Message, UserContext } from '../types'
 import ChatMessage from '../components/ChatMessage'
 import TypingIndicator from '../components/TypingIndicator'
@@ -24,6 +24,7 @@ const WELCOME_MESSAGE: Message = {
 
 export default function ChatPage() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   
   // Chat messages state
   const [messages, setMessages] = useState<Message[]>([WELCOME_MESSAGE])
@@ -40,6 +41,7 @@ export default function ChatPage() {
   // Reference to scroll container
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
+  const [autoPromptSent, setAutoPromptSent] = useState(false)
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -119,6 +121,16 @@ export default function ChatPage() {
       setIsLoading(false)
     }
   }
+
+  // If a prompt is passed via URL (?prompt=...), automatically send it once
+  useEffect(() => {
+    if (autoPromptSent) return
+    const prompt = searchParams.get('prompt')
+    if (prompt) {
+      handleSend(prompt)
+      setAutoPromptSent(true)
+    }
+  }, [searchParams, autoPromptSent])
 
   // Handle quick suggestion click
   const handleQuickSuggestion = (suggestion: string) => {

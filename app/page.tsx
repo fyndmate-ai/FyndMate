@@ -124,6 +124,30 @@ const TrendIcon = () => (
   </svg>
 )
 
+// Top search chips configuration - label shown on the chip + prompt sent to chat page
+const TOP_SEARCHES = [
+  {
+    label: 'Wireless earbuds',
+    prompt:
+      'Find best wireless earbuds on Amazon India under ₹3000 with good sound quality, battery life, and mic.',
+  },
+  {
+    label: 'Laptop',
+    prompt:
+      'Find best laptop under ₹60000 for students and office work on Amazon India.',
+  },
+  {
+    label: 'Running shoes',
+    prompt:
+      'Find best running shoes for daily jogging and gym available on Flipkart.',
+  },
+  {
+    label: 'Smartwatch',
+    prompt:
+      'Find best smartwatch under ₹5000 with fitness tracking and AMOLED display.',
+  },
+]
+
 // Main landing page component - original design restored
 export default function Home() {
   const router = useRouter()
@@ -148,6 +172,12 @@ export default function Home() {
       // In future, can pass image data to chat page
       router.push('/chat')
     }
+  }
+
+  // Handler for clicking a top search chip - navigate to chat page with predefined prompt
+  const handleTopSearchClick = (prompt: string) => {
+    const encoded = encodeURIComponent(prompt)
+    router.push(`/chat?prompt=${encoded}`)
   }
 
   return (
@@ -221,19 +251,16 @@ export default function Home() {
               </button>
             </div>
             <div className="flex flex-wrap justify-center gap-2 text-sm text-slate-700">
-              <span className="text-slate-500 mr-2">Try asking:</span>
-              {[
-                'I want to buy wireless earbuds...',
-                'I want to buy a laptop...',
-                'I want to buy running shoes...',
-                'I want to buy a smartwatch...',
-              ].map((prompt) => (
-                <span
-                  key={prompt}
+              <span className="text-slate-500 mr-2">Top Searches 🔥</span>
+              {TOP_SEARCHES.map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() => handleTopSearchClick(item.prompt)}
                   className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm"
                 >
-                  {prompt}
-                </span>
+                  {item.label}
+                </button>
               ))}
             </div>
           </div>
