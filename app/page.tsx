@@ -251,6 +251,8 @@ export default function Home() {
               </button>
             </div>
             <div className="flex flex-wrap justify-center gap-2 text-sm text-slate-700">
+              <span className="text-red-600 font-bold">TEST LIVE</span>
+
               <span className="text-slate-500 mr-2">Top Searches 🔥</span>
               {TOP_SEARCHES.map((item) => (
                 <button
