@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link';
 import { Button } from '@/components/ui/button'
 import { Shirt, Zap } from 'lucide-react'
 import { AnimatedStars } from '@/components/animated-stars'
@@ -86,6 +87,7 @@ export default function Home() {
             <Button className="px-8 py-6 text-lg font-semibold bg-green-500 text-black hover:bg-green-400 transition-all duration-300 rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50">
               Fynd Products
             </Button>
+            </Link>
 
             {/* AI Designer Button - Outlined */}
             <Button
