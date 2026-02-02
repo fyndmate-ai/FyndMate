@@ -1,6 +1,3 @@
-// Type definitions for the chat interface and product data
-// This structure is ready for real Amazon/Flipkart API integration later
-
 // Message types for the chat interface
 export interface Message {
   id: string
@@ -10,7 +7,7 @@ export interface Message {
   products?: Product[]
 }
 
-// Product structure matching the requirements
+// Product structure - Matches your ProductCard.tsx components
 export interface Product {
   id: string
   name: string
@@ -21,18 +18,8 @@ export interface Product {
   flipkartLink: string
 }
 
-// AI response structure
+// AI response structure for the Gemini API
 export interface AIResponse {
   answer: string
   products?: Product[]
-  needsFollowUp?: boolean
-  followUpQuestion?: string
-}
-
-// User context for smart follow-up questions
-export interface UserContext {
-  productType?: string
-  budget?: string
-  usage?: string
-  brandPreference?: string
 }
