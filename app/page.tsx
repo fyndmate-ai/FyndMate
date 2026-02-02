@@ -83,10 +83,11 @@ export default function Home() {
 
           {/* Action buttons */}
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            {/* Find Products Button - Filled green */}
-            <Button className="px-8 py-6 text-lg font-semibold bg-green-500 text-black hover:bg-green-400 transition-all duration-300 rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50">
-              Fynd Products
-            </Button>
+            {/* Find Products Button - Fixed Link Wrapper */}
+            <Link href="/chat">
+              <Button className="px-8 py-6 text-lg font-semibold bg-green-500 text-black hover:bg-green-400 transition-all duration-300 rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50">
+                Fynd Products
+              </Button>
             </Link>
 
             {/* AI Designer Button - Outlined */}
@@ -98,11 +99,8 @@ export default function Home() {
               AI Designer
             </Button>
           </div>
-
-
         </main>
       </div>
     </div>
   )
 }
-
