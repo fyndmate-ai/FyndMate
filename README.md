@@ -67,15 +67,17 @@ npm start
 app/
 ├── api/
 │   └── chat/
-│       └── route.ts          # Chat API endpoint (mock AI)
+│       └── route.ts          # Gemini AI Brain (The Logic)
+├── chat/
+│   └── page.tsx              # The AI Chat Room interface
 ├── components/
-│   ├── ChatMessage.tsx       # Message bubble component
-│   ├── ProductCard.tsx       # Product card with Amazon/Flipkart buttons
-│   └── TypingIndicator.tsx   # Animated typing dots
-├── page.tsx                  # Main chat interface
-├── layout.tsx                # Root layout
-├── types.ts                  # TypeScript type definitions
-└── globals.css               # Global styles
+│   ├── animated-stars.tsx    # Background star animations
+│   ├── cursor-glow.tsx       # Interactive mouse effect
+│   ├── ProductCard.tsx       # Dark mode product cards
+│   └── TypingIndicator.tsx   # Neon green typing dots
+├── page.tsx                  # Landing Page (The Entrance)
+├── types.ts                  # Shared data definitions
+└── globals.css               # Global styles & Tailwind
 ```
 
 ## How It Works
