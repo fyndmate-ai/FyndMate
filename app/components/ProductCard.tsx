@@ -1,6 +1,7 @@
 'use client'
 
-import { Product } from '@/types'
+import Image from 'next/image'
+import { Product } from '../types'
 
 interface ProductCardProps {
   product: Product
@@ -11,11 +12,13 @@ export default function ProductCard({ product }: ProductCardProps) {
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition hover:border-[#00E676]/50 shadow-lg mb-4">
       <div className="flex flex-col md:flex-row">
         {/* Product image */}
-        <div className="md:w-48 h-48 md:h-auto bg-white/10 overflow-hidden">
-          <img
+        <div className="md:w-48 h-48 md:h-auto bg-white/10 overflow-hidden relative">
+          <Image
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            unoptimized
           />
         </div>
 

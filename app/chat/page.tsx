@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Send, ShoppingBag } from 'lucide-react'
-import { AnimatedStars } from '@/components/animated-stars'
-import { CursorGlow } from '@/components/cursor-glow'
+import { AnimatedStars } from '../components/AnimatedStars'
+import { CursorGlow } from '../components/CursorGlow'
 
 const QUICK_SUGGESTIONS = [
   'I want to buy wireless earbuds',
@@ -15,7 +15,7 @@ const QUICK_SUGGESTIONS = [
 
 export default function ChatPage() {
   const [input, setInput] = useState('')
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState<{ role: string; content: string }[]>([])
   const [loading, setLoading] = useState(false)
 
   const handleSend = async (text: string) => {
@@ -61,7 +61,7 @@ export default function ChatPage() {
           <div className="h-full flex flex-col items-center justify-center space-y-8 mt-12">
             <div className="text-center space-y-2">
               <p className="text-2xl font-bold">Bhai, what are you looking for today?</p>
-              <p className="text-gray-500">I'll find the best deals for you.</p>
+              <p className="text-gray-500">I&apos;ll find the best deals for you.</p>
             </div>
             
             {/* Quick Suggestions styled as modern pills */}

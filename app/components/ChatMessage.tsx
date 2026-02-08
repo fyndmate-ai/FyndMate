@@ -1,7 +1,7 @@
 'use client'
 
-import { Message } from '@/types'
-import ProductCard from '@/components/ProductCard'
+import { Message } from '../types'
+import ProductCard from './ProductCard'
 
 interface ChatMessageProps {
   message: Message
